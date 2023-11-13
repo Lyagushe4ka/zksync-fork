@@ -1,8 +1,8 @@
-import ethers from "ethers";
+import { providers, Wallet } from "ethers";
 import * as zksync from "zksync";
 export { zksync };
 
-export function getEthers5Signer(privateKey: string): ethers.Signer {
-  const provider = new ethers.providers.JsonRpcProvider("https://eth.llamarpc.com");
-  return new ethers.Wallet(privateKey, provider);
+export function getEthers5Signer(privateKey: string): Wallet {
+  const provider = new providers.JsonRpcProvider("https://eth.llamarpc.com");
+  return new Wallet(privateKey, provider);
 }
