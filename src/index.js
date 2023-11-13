@@ -22,7 +22,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.zksync = void 0;
+exports.getEthers5Signer = exports.zksync = void 0;
+const ethers_1 = __importDefault(require("ethers"));
 const zksync = __importStar(require("zksync"));
 exports.zksync = zksync;
+function getEthers5Signer(privateKey) {
+    const provider = new ethers_1.default.providers.JsonRpcProvider("https://eth.llamarpc.com");
+    return new ethers_1.default.Wallet(privateKey, provider);
+}
+exports.getEthers5Signer = getEthers5Signer;
